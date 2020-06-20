@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/javiermendozain/test-backend-microservice-mi-aguila/master/header-mi-aguila.png" alt="Logo" width="150" height="auto" />
+  <img src="https://raw.githubusercontent.com/javiermendozain/test-backend-microservice-mi-aguila/master/header-mi-aguila.png" alt="Logo" width="300" height="auto" />
 </p>
 
 <p align="center">
