@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  microservice-trips:
+    build: .
+    depends_on:
+      - mongo
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongo:27017/miaguila
+      - CACHE_KEY=4F98AjakST7TNlc6ia1wHQxed9O
+      - SWAGGER_DOC=swaggerDocs
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/var/www/
+      - /var/www/node_modules
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"

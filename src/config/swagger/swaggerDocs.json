@@ -1,0 +1,163 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Test for backend dev on mi agula",
+    "version": "0.0.1",
+    "title": "Test backend microservice mi aguila",
+    "contact": {
+      "email": "javier.ing.teleco@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/v1/api",
+  "tags": [
+    {
+      "name": "Trips",
+      "description": "Everything about trips"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "paths": {
+    "/trip": {
+      "post": {
+        "tags": ["Trip"],
+        "summary": "Create a new Trip",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "entity",
+            "description": "JSON of Entity for trip to create",
+            "required": true,
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid status value"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        }
+      }
+    },
+    "/trip/{tripId}": {
+      "put": {
+        "tags": ["Trip"],
+        "summary": "Update a new Trip by id",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "tripId",
+            "in": "path",
+            "type": "string",
+            "description": "Id of trip",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "entity",
+            "description": "JSON of Entity for trip to update",
+            "required": true,
+            "type": "object"
+          }
+        ],
+
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid status value"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        }
+      }
+    },
+    "/trip/count": {
+      "get": {
+        "tags": ["Trip"],
+        "summary": "Get number of trips ",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CountAllTrips"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tag value"
+          }
+        }
+      }
+    },
+    "/trip/count/{cityName}": {
+      "get": {
+        "tags": ["Trip"],
+        "summary": "Get number of trip by city",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "cityName",
+            "in": "path",
+            "type": "string",
+            "description": "Name of city",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CountTripsByCityName"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tag value"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CountAllTrips": {
+      "type": "object",
+      "properties": {
+        "totalTrip": {
+          "type": "number"
+        }
+      }
+    },
+    "CountTripsByCityName": {
+      "type": "object",
+      "properties": {
+        "totalTrip": { "type": "number" },
+        "byCityName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

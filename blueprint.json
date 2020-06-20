@@ -1,0 +1,14 @@
+{
+  "logo": {
+    "src": "https://raw.githubusercontent.com/javiermendozain/test-backend-microservice-mi-aguila/master/header-mi-aguila.png",
+    "width": "150"
+  },
+  "ids": {
+    "github": "javiermendozain/test-backend-microservice-mi-aguila"
+  },
+  "checkLinks": false,
+  "headingPrefix": {
+    "1": "💥 ",
+    "2": "⭑ "
+  }
+}
